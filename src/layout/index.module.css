@@ -1,3 +1,8 @@
 .layout {
   display: flex;
 }
+
+.main {
+  flex: 1;
+  padding: 50px;
+}

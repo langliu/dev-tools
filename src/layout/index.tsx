@@ -8,7 +8,9 @@ const Layout:FC = () => {
   return (
     <div className={styles.layout}>
       <Sidebar />
-      <Outlet />
+      <main className={styles.main}>
+        <Outlet />
+      </main>
     </div>
   )
 }
