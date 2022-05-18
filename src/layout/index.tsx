@@ -1,18 +1,19 @@
 import { FC } from 'react'
 import { Outlet } from 'react-router-dom'
+import { Layout } from '@douyinfe/semi-ui'
 
 import Sidebar from './Sidebar'
 import styles from './index.module.css'
 
-const Layout:FC = () => {
+const RootLayout:FC = () => {
   return (
-    <div className={styles.layout}>
+    <Layout>
       <Sidebar />
-      <main className={styles.main}>
+      <Layout.Content className={styles.main}>
         <Outlet />
-      </main>
-    </div>
+      </Layout.Content>
+    </Layout>
   )
 }
 
-export default Layout
+export default RootLayout

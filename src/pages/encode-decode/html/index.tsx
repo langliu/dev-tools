@@ -1,5 +1,5 @@
 import { FC, FormEvent, useState } from 'react'
-import { TextField } from '@fluentui/react'
+import { TextArea } from '@douyinfe/semi-ui'
 import { encodeHTML } from 'entities'
 import Title from '@/components/title'
 import styles from './index.module.css'
@@ -7,15 +7,15 @@ import styles from './index.module.css'
 const HTMLPage:FC = () => {
   const [output, setOutput] = useState('')
 
-  const onChange = (event: FormEvent<HTMLInputElement | HTMLTextAreaElement>, newValue?: string) :void => {
+  const onChange = (newValue: string, event: FormEvent<HTMLInputElement | HTMLTextAreaElement>) :void => {
     setOutput(encodeHTML(newValue ?? ''))
   }
 
   return (
     <div>
       <Title title="HTML 编码/解码工具" />
-      <TextField className={styles.field} label="输入" multiline rows={8} onChange={onChange} />
-      <TextField label="输出" multiline rows={8} value={output} />
+      <TextArea className={styles.field} maxCount={8} onChange={onChange} />
+      <TextArea maxCount={8} value={output} />
     </div>
   )
 }

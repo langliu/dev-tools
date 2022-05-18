@@ -20,7 +20,7 @@ module.exports = {
     { name: "样式" },
     { name: "文档更改" },
     { name: "其它变更" },
-    { name: "编码/解码" }
+    { name: "编码解码" }
   ],
   allowTicketNumber: false,
   isTicketNumberRequired: false,

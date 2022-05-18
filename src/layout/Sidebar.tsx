@@ -1,46 +1,49 @@
 import { FC } from 'react'
-import { Nav, INavLinkGroup, INavStyles } from '@fluentui/react'
-
-const navStyles: Partial<INavStyles> = {
-  root: {
-    width: 208,
-    height: '100vh',
-    boxSizing: 'border-box',
-    border: '1px solid #eee',
-    overflowY: 'auto'
-  }
-}
+import { useNavigate } from 'react-router-dom'
+import { Layout, Nav } from '@douyinfe/semi-ui'
+import { IconHome, IconHistogram, IconLive, IconSetting } from '@douyinfe/semi-icons'
+import { OnSelectedData } from '@douyinfe/semi-ui/lib/es/navigation'
 
 const Sidebar:FC = () => {
-  const groups: INavLinkGroup[] = [
-    {
-      name: '编码/解码类型工具',
-      expandAriaLabel: 'Expand Extended components section',
-      collapseAriaLabel: 'Collapse Extended components section',
-      links: [
-        {
-          name: 'HTML',
-          url: 'html',
-          key: 'html'
-        },
-        {
-          name: 'URL',
-          url: '/url',
-          key: 'url'
-        },
-        {
-          name: 'MD5',
-          url: '/md5',
-          key: 'md5'
-        }
-      ],
-      isExpanded: true
+  const navigate = useNavigate()
+
+  const onSelect = (data: OnSelectedData) => {
+    if (data.itemKey === 'html') {
+      navigate('/html')
+    } else if (data.itemKey === 'url') {
+      navigate('/url')
     }
-  ]
+  }
   return (
-    <div>
-      <Nav groups={groups} styles={navStyles}></Nav>
-    </div>
+    <Layout.Sider>
+      <Nav
+        defaultOpenKeys={['home']}
+        style={{ maxWidth: 220, height: '100%' }}
+        items={[
+          { itemKey: 'Home', text: '首页', icon: <IconHome size="large" /> },
+          { itemKey: 'Histogram', text: '基础数据', icon: <IconHistogram size="large" /> },
+          { itemKey: 'Live', text: '测试功能', icon: <IconLive size="large" /> },
+          { itemKey: 'Setting', text: '设置', icon: <IconSetting size="large" /> },
+          {
+            text: '编码/解码类型工具',
+            icon: <IconSetting />,
+            itemKey: 'job',
+            items: [
+              {
+                text: 'HTML',
+                itemKey: 'html'
+              },
+              {
+                text: 'URL',
+                itemKey: 'url'
+              }
+            ]
+          }
+        ]}
+        onSelect={onSelect}
+        onClick={data => console.log('trigger onClick: ', data)}
+      />
+    </Layout.Sider>
   )
 }
 
