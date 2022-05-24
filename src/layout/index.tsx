@@ -7,9 +7,9 @@ import styles from './index.module.css'
 
 const RootLayout:FC = () => {
   return (
-    <Layout>
+    <Layout className={ styles.layout }>
       <Sidebar />
-      <Layout.Content className={styles.main}>
+      <Layout.Content className={ styles.main }>
         <Outlet />
       </Layout.Content>
     </Layout>

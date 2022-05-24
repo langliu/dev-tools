@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.title-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  gap: 2px;
+}
+
+.title-wrapper p {
+  margin: 0;
+}
+
+.title {
+  color: #333;
+  font-size: 16px;
+}
+
+.subtile {
+  color: #666;
+  font-size: 14px;
+}

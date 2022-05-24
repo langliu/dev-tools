@@ -1,0 +1,10 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+  padding: 5px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  gap: 5px;
+}
