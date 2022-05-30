@@ -43,7 +43,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0",
-    "husky": "^7.0.0",
+    "husky": "^8.0.1",
     "standard-version": "^9.3.2",
     "stylelint": "^14.8.2",
     "stylelint-config-property-sort-order-smacss": "^9.0.0",
