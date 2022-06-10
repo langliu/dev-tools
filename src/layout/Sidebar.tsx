@@ -13,14 +13,14 @@ const Sidebar:FC = () => {
     } else if (data.itemKey === 'url') {
       navigate('/url')
     }
+    navigate(data.itemKey as string)
   }
   return (
     <Layout.Sider>
       <Nav
-        defaultOpenKeys={['home']}
-        style={{ maxWidth: 220, height: '100%' }}
-        items={[
-          { itemKey: 'Home', text: '首页', icon: <IconHome size="large" /> },
+        defaultOpenKeys={ ['home'] }
+        items={ [
+          { itemKey: 'home', text: '所有工具', icon: <IconHome size="large" /> },
           { itemKey: 'Histogram', text: '基础数据', icon: <IconHistogram size="large" /> },
           { itemKey: 'Live', text: '测试功能', icon: <IconLive size="large" /> },
           { itemKey: 'Setting', text: '设置', icon: <IconSetting size="large" /> },
@@ -39,9 +39,10 @@ const Sidebar:FC = () => {
               }
             ]
           }
-        ]}
-        onSelect={onSelect}
-        onClick={data => console.log('trigger onClick: ', data)}
+        ] }
+        style={ { maxWidth: 220, height: '100%' } }
+        onClick={ data => console.log('trigger onClick: ', data) }
+        onSelect={ onSelect }
       />
     </Layout.Sider>
   )

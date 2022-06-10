@@ -3,7 +3,8 @@ import { Link, Route, Routes } from 'react-router-dom'
 import Layout from '../layout'
 import MD5Page from '../pages/md5'
 import URLPage from '../pages/encode-decode/url'
-import HTMLPage from '../pages/encode-decode/html'
+import HTMLPage from '@/pages/encode-decode/html'
+import HomePage from '@/pages/home'
 
 function NoMatch () {
   return (
@@ -19,12 +20,13 @@ function NoMatch () {
 const RootRoute:FC = () => {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<MD5Page />} />
-        <Route path="md5" element={<MD5Page />} />
-        <Route path="url" element={<URLPage />} />
-        <Route path="html" element={<HTMLPage />} />
-        <Route path="*" element={<NoMatch />} />
+      <Route element={ <Layout /> } path="/">
+        <Route index element={ <MD5Page /> } />
+        <Route element={ <MD5Page /> } path="md5" />
+        <Route element={ <URLPage /> } path="url" />
+        <Route element={ <HTMLPage /> } path="html" />
+        <Route element={ <HomePage /> } path="home" />
+        <Route element={ <NoMatch /> } path="*" />
       </Route>
     </Routes>
   )
