@@ -18,7 +18,23 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
-    'react/react-in-jsx-scope': 'off'
+    'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/no-use-before-define': ['error'],
+    '@typescript-eslint/no-unused-vars': 2,
+    '@typescript-eslint/no-floating-promises': 0,
+    '@typescript-eslint/strict-boolean-expressions': 0,
+    '@typescript-eslint/restrict-template-expressions': 0,
+    '@typescript-eslint/consistent-type-assertions': 0,
+    'space-before-function-paren': ['error', 'always'],
+    'react/jsx-curly-spacing': [2, { when: 'always', children: true }],
+    'react/jsx-tag-spacing': [2, { beforeSelfClosing: 'always' }],
+    'react/jsx-max-props-per-line': [
+      'error',
+      { maximum: 1, when: 'multiline' }
+    ],
+    'react/jsx-indent-props': [2, 2],
+    'react/jsx-indent': [2, 2],
+    'react/jsx-sort-props': [1, { callbacksLast: true, shorthandFirst: true }]
   },
   settings: {
     react: {
