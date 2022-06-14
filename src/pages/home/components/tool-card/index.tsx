@@ -1,5 +1,6 @@
 import { FC, ReactNode } from 'react'
 import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom'
 
 const CardWrapper = styled.div`
   display: flex;
@@ -8,6 +9,7 @@ const CardWrapper = styled.div`
   padding: 20px 15px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  cursor: pointer;
 `
 
 const IconWrapper = styled.div`
@@ -34,11 +36,13 @@ type Props = {
   icon?: ReactNode
   title: string
   description: string
+  url: string
 }
 
-const ToolCard: FC<Props> = ({ icon, title, description }: Props) => {
+const ToolCard: FC<Props> = ({ icon, title, description, url }: Props) => {
+  const navigate = useNavigate()
   return (
-    <CardWrapper>
+    <CardWrapper onClick={ () => navigate(url) }>
       <IconWrapper>
         { icon }
       </IconWrapper>

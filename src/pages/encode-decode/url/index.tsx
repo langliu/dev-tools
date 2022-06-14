@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import { TextArea, Switch } from '@douyinfe/semi-ui'
 import { IconCopy, IconClose, IconFile } from '@douyinfe/semi-icons'
-import { clipboard } from '@tauri-apps/api'
+import { clipboard, dialog, fs } from '@tauri-apps/api'
 
 import Title from '@/components/title'
 import ToolBar from '@/components/tool-bar'
@@ -31,6 +31,20 @@ const URLPage:FC = () => {
     onChange(text)
   }
 
+  const readFile = () => {
+    dialog.open({
+      filters: [{ extensions: ['html', 'txt'], name: '格式过滤' }],
+      multiple: false
+    }).then((filePath) => {
+      console.log(filePath)
+      if (typeof filePath === 'string') {
+        fs.readTextFile(filePath).then((text) => {
+          console.log(text)
+          onChange(text)
+        })
+      }
+    }).catch(() => {})
+  }
   return (
     <div className={ styles.wrapper }>
       <Title title="URL 编码/解码工具" />
@@ -46,13 +60,13 @@ const URLPage:FC = () => {
         extra={
           <>
             <ToolButton icon={ <IconCopy /> } onClick={ readTextFromClipboard }>粘贴</ToolButton>
-            <ToolButton icon={ <IconFile /> }>打开文件</ToolButton>
+            <ToolButton icon={ <IconFile /> } onClick={ readFile }>打开文件</ToolButton>
             <ToolButton icon={ <IconClose /> } onClick={ () => onChange('') }>清空</ToolButton>
           </>
         }
         label="输入"
       />
-      <TextArea className={ styles.field } value={ input } onChange={ onChange } />
+      <TextArea autosize showClear className={ styles.field } value={ input } onChange={ onChange } />
       <ToolBar
         extra={
           <ToolButton
@@ -62,7 +76,7 @@ const URLPage:FC = () => {
       }
         label="输出"
       />
-      <TextArea className={ styles.field }value={ output } />
+      <TextArea autosize className={ styles.field } value={ output } />
     </div>
   )
 }
