@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Layout, Nav } from '@douyinfe/semi-ui'
-import { IconHome, IconHistogram, IconLive, IconSetting } from '@douyinfe/semi-icons'
+import { IconHistogram, IconHome, IconLive, IconSetting } from '@douyinfe/semi-icons'
 import { OnSelectedData } from '@douyinfe/semi-ui/lib/es/navigation'
 
 const Sidebar:FC = () => {
@@ -36,6 +36,10 @@ const Sidebar:FC = () => {
               {
                 text: 'URL',
                 itemKey: 'url'
+              },
+              {
+                text: 'Base64 文本',
+                itemKey: 'base64-text'
               }
             ]
           }

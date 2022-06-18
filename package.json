@@ -20,6 +20,7 @@
     "@douyinfe/semi-ui": "^2.12.0",
     "@tauri-apps/api": "1.0.0-rc.6",
     "entities": "^4.3.0",
+    "js-base64": "^3.7.2",
     "react": "^18.1.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.1.0",

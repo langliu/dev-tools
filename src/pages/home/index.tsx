@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { IconTopbuzzLogo } from '@douyinfe/semi-icons'
+import { IconCode, IconLink } from '@douyinfe/semi-icons'
 import styled from 'styled-components'
 
 import Title from '@/components/title'
@@ -19,8 +19,15 @@ const HomePage:FC = () => {
       <ToolCardWrapper>
         <ToolCard
           description={ '将所有适用的字符编码或解码为对应的 HTML 输出' }
-          icon={ <IconTopbuzzLogo style={ { fontSize: '4rem' } } /> }
+          icon={ <IconCode style={ { fontSize: '4rem' } } /> }
           title={ 'HTML 编码/解码工具' }
+          url={ '/html' }
+        />
+        <ToolCard
+          description={ '将所有适用的字符编码或解码为对应的 URL 输出' }
+          icon={ <IconLink style={ { fontSize: '4rem' } } /> }
+          title={ 'URL 编码/解码工具' }
+          url={ '/url' }
         />
       </ToolCardWrapper>
     </div>

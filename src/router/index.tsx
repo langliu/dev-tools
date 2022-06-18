@@ -5,6 +5,7 @@ import MD5Page from '../pages/md5'
 import URLPage from '../pages/encode-decode/url'
 import HTMLPage from '@/pages/encode-decode/html'
 import HomePage from '@/pages/home'
+import Base64TextPage from '@/pages/encode-decode/base64'
 
 function NoMatch () {
   return (
@@ -26,6 +27,7 @@ const RootRoute:FC = () => {
         <Route element={ <URLPage /> } path="url" />
         <Route element={ <HTMLPage /> } path="html" />
         <Route element={ <HomePage /> } path="home" />
+        <Route element={ <Base64TextPage /> } path="base64-text" />
         <Route element={ <NoMatch /> } path="*" />
       </Route>
     </Routes>
